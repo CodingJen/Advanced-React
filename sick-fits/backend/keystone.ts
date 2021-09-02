@@ -8,6 +8,7 @@ import { ProductImage } from './schemas/ProductImage';
 import { CartItem } from './schemas/CartItem';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
+import { extendGraphqlSchema } from './mutations';
 
 // prettier-ignore
 const databaseURL =
@@ -53,6 +54,7 @@ export default withAuth(
       },
       // TODO: Add data seeding here
     },
+    extendGraphqlSchema,
     lists: createSchema({
       // Schema items go in  here
       User,
