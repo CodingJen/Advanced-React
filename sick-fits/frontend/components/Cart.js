@@ -6,6 +6,7 @@ import formatMoney from '../lib/formatMoney';
 import calcTotalPrice from '../lib/calcTotalPrice';
 import { useCart } from '../lib/cartState';
 import CloseButton from './styles/CloseButton';
+import Checkout from './Checkout';
 
 export default function Cart() {
   const user = useUser();
@@ -15,7 +16,7 @@ export default function Cart() {
     <CartStyles open={cartOpen}>
       <header>
         <Supreme>{user.name}'s Cart</Supreme>
-        <CloseButton type="button" onClick={closeCart}>
+        <CloseButton type="button" title="Close cart view" onClick={closeCart}>
           &times;
         </CloseButton>
       </header>
@@ -26,6 +27,7 @@ export default function Cart() {
       </ul>
       <footer>
         <p>{formatMoney(calcTotalPrice(user.cart) / 100)}</p>
+        <Checkout />
       </footer>
     </CartStyles>
   );
