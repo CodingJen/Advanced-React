@@ -26,7 +26,7 @@ export default function CartItem({ cartItem }) {
       <div>
         <h3>{product.name}</h3>
         <p>
-          {formatMoney((product.price / 100) * cartItem.quantity)}-
+          {formatMoney(product.price * cartItem.quantity)}-
           <em>
             {cartItem.quantity} &times; {formatMoney(product.price / 100)}
           </em>

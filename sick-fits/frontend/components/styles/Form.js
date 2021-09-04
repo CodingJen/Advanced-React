@@ -58,11 +58,24 @@ const Form = styled.form`
       content: '';
       display: block;
       background-image: linear-gradient(
+        0deg,
+        #55cdfc 0%,
+        #55cdfc 10%,
+        #f7a8b8 25%,
+        #f7a8b8 35%,
+        white 45%,
+        white 55%,
+        #f7a8b8 65%,
+        #f7a8b8 75%,
+        #55cdfc 90%,
+        #55cdfc 100%
+      );
+      /* background-image: linear-gradient(
         to right,
         #ff3019 0%,
         #e2b04a 50%,
         #ff3019 100%
-      );
+      ); */
     }
     &[aria-busy='true']::before {
       background-size: 50% auto;

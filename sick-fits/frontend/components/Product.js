@@ -16,7 +16,7 @@ export default function Product({ product }) {
       <Title>
         <Link href={`/product/${product.id}`}>{product.name}</Link>
       </Title>
-      <PriceTag>{formatMoney(product.price / 100)}</PriceTag>
+      <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
       <div className="buttonList">
         <Link href={{ pathname: '/update', query: { id: product.id } }}>
