@@ -3,14 +3,17 @@ import { createAuth } from '@keystone-next/auth';
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import { withItemData, statelessSessions } from '@keystone-next/keystone/session';
 import { User } from './schemas/User';
+import { Address } from './schemas/Address';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import { CartItem } from './schemas/CartItem';
 import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
+import { Role } from './schemas/Role';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { extendGraphqlSchema } from './mutations';
+import { permissionList } from './schemas/fields';
 
 // prettier-ignore
 const databaseURL =
@@ -60,11 +63,13 @@ export default withAuth(
     lists: createSchema({
       // Schema items go in  here
       User,
+      Address,
       Product,
       ProductImage,
       CartItem,
       OrderItem,
       Order,
+      Role,
     }),
     ui: {
       // Show the UI only for people who pass this test
@@ -74,7 +79,7 @@ export default withAuth(
     },
     session: withItemData(statelessSessions(sessionConfig), {
       // GraphQL query
-      User: 'id name email',
+      User: `id name email role { ${permissionList.join(' ')} }`,
     }),
   })
 );

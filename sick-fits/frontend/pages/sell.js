@@ -1,9 +1,12 @@
 import CreateProduct from '../components/CreateProduct';
+import { SignedInRender } from '../components/SignInPlease';
 
 export default function SellPage() {
   return (
     <div>
-      <CreateProduct />
+      <SignedInRender>
+        <CreateProduct />
+      </SignedInRender>
     </div>
   );
 }

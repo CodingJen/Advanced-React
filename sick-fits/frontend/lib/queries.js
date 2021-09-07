@@ -7,6 +7,20 @@ export const CURRENT_USER_QUERY = gql`
         id
         email
         name
+        joined
+        addresses {
+          id
+          name
+          line1
+          line2
+          city
+          province
+          country
+          postalcode
+          phonenumber
+          instructions
+          primary
+        }
         cart {
           id
           quantity

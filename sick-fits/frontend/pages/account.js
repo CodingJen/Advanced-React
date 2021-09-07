@@ -1,7 +1,14 @@
+import AccountDetails from '../components/AccountDetails';
+import { SignedInRender } from '../components/SignInPlease';
+import User, { useUser } from '../components/User';
+
 export default function AccountPage() {
+  // const user = useUser();
   return (
     <div>
-      <p>Account Page</p>
+      <SignedInRender>
+        <User />
+      </SignedInRender>
     </div>
   );
 }
